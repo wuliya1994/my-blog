@@ -22,3 +22,4 @@ $ hexo deploy
 或者 $ hexo d
 
 3) 打开浏览器访问 username.github.io 即可访问我们刚部署到Github上的博客
+
