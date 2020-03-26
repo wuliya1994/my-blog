@@ -1,6 +1,6 @@
 # 指定基础镜像，必须为第一个命令
 FROM node:lts-alpine as build-stage
-MAINTAINER mandy
+MAINTAINER Mandy
 # 工作目录
 WORKDIR /app
 COPY package*.json ./
