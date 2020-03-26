@@ -4,7 +4,7 @@ MAINTAINER mandy
 # 工作目录
 WORKDIR /app
 COPY package*.json ./
-RUN npm --registry=https://registry.npm.taobao.org install hexo-cli -g && npm install
+RUN npm install hexo-cli -g && npm install
 COPY . .
 RUN hexo clean && hexo g
 
