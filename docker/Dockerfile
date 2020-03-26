@@ -3,18 +3,17 @@ FROM node:lts-alpine as build-stage
 MAINTAINER mandy
 # 工作目录
 WORKDIR /app
-
-COPY ../package.json ./
-RUN npm config set registry https://registry.npm.taobao.org/
-RUN npm install
-COPY ../ .
-RUN npm run build
+COPY package*.json ./
+RUN npm --registry=https://registry.npm.taobao.org install hexo-cli -g && npm install
+COPY . .
+RUN hexo clean && hexo g
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-COPY app.conf /etc/nginx/conf.d/blog.conf
+COPY ./docker/app.conf /etc/nginx/conf.d/blog.conf
 COPY --from=build-stage /app/public /usr/share/nginx/html
 EXPOSE 4000
 # start the blog
-CMD [ "npm", "deploy" ]
+CMD ["nginx", "-g", "daemon off;"]
+
 
