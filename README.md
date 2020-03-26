@@ -5,7 +5,6 @@
 # 安装
 $ npm install
 
-# 开发模式需切换到dev分支下开发
 # 启动服务
 $ hexo server
 或者
