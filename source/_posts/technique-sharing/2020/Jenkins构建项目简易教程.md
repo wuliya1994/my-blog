@@ -27,7 +27,7 @@ tags:
 **下面的工具已安装的可以跳过**
 
 当前软件下载位置：/opt/soft/,进入该位置
-#### 3.1、安装jdk
+### 3.1、安装jdk
 安装包使用百度云下载的或者进入下载[https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 ```bash
 # 解压
@@ -49,7 +49,7 @@ java -version
 
 ```
 
-#### 3.2、安装tomcat
+### 3.2、安装tomcat
 
 使用百度云安装包或者直接
 wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
@@ -65,7 +65,7 @@ mv apache-tomcat-8.5.39 /usr/local/tomcat/
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202115009288.png)
 
-#### 3.3、安装maven
+### 3.3、安装maven
 使用百度云解压包或者下载maven安装包
 wget [http://mirror.bit.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz](http://mirror.bit.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz)
 
@@ -89,7 +89,7 @@ mvn -v
 
 ```
 
-#### 3.4、安装git
+### 3.4、安装git
 **提示**：安装git经常会遇到一些错误
 使用百度云的解压包或者额外下载 [https://www.kernel.org/pub/software/scm/git](https://www.kernel.org/pub/software/scm/git)
 ```bash
@@ -109,7 +109,7 @@ yum install curl-devel
 git --version
 
 ```
-#### 3.5、安装npm
+### 3.5、安装npm
 
 进入jenkins插件中心安装nodejs，接着去系统设置→系统设置（全局设置）>找到npm，配置如下
 进入jenkins插件中心安装nodejs，接着去系统设置→系统设置（全局设置）>找到npm，配置如下
@@ -118,7 +118,7 @@ git --version
 
 
 ## 三、安装jenkins
- #### 3.1、安装jenkins
+ ### 3.1、安装jenkins
 3.1.1、版本选择：2.164.1。
 3.1.2、下载各个版本地址：[https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/](https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/)
 
@@ -137,7 +137,7 @@ mv jenkins.war /usr/local/tomcat/apache-tomcat-8.5.49/webapps
 
 
  
- #### 3.2、配置初始页
+ ### 3.2、配置初始页
 3.2.1、这里有一个临时密码需要输入，在/home/tomcat/.jenkins/secrets/initialAdminPassword里面
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202143714163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
 3.2.2、选择第二个，select plugin to install，这里其实不安装东西也没关系，进去主页面之后再去安装插件即可，确认
@@ -146,7 +146,7 @@ mv jenkins.war /usr/local/tomcat/apache-tomcat-8.5.49/webapps
  3.2.4、进入主页
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202144007199.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
  
- #### 3.3、插件、凭据、工具配置
+ ### 3.3、插件、凭据、工具配置
  
  
 1、插件安装：系统管理->插件管理>搜索过滤插件->安装
@@ -248,7 +248,7 @@ echo "启动中"
  - 遇到jenkins的自己的页面没有下拉选项应该少安装了插件，需要去安装插件。
  - 修改jenkins工作空间workspace需要自行百度
 ## 六、构建npm前端项目简述
-#### 6.1.1、前端npm项目构建
+### 6.1.1、前端npm项目构建
 1、构建一个自由风格的项目
 2、【源码管理】选择git版本和分支选择同前面maven的一致
 3、接下来就不一样了，
