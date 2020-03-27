@@ -53,69 +53,69 @@ Confluence内置了大量的模板，可辅助用于项目工作的各个环节�
 
 ####  2.1、文档查看与操作 
 用户账户登录首页->选择要查看的【空间】->【****开发项目管理】->【项目管理】->选择对应的项目→查看您想看的文档
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115141617777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115141617777.png)
 ####  2.2、添加文档 
 在Confluence中文件以树状结构进行组织。
 推荐的创建方式是，先进入父目录的页面，然后再点击【Create】进行创建。在创建文档页面中，可以看到新建文档的“父级”，表示新文档创建后将位于“父级”文件的下一个层级中。
 
 在新建文档时，需要选择文档模板。这个就根据文档的实际类型或用途进行选择即可，如果觉得都不合适，就选择“Blank page”。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019111514172047.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/2019111514172047.png)
 ####  2.3、编写文档 
 在编写文档时，页面遵循所见即所得的编辑方式，基本上跟在MS Word中的操作类似。
 Confluence也集成了许多编辑工具，可以很方便地插入图表、链接、附件、代办列表等等。如果还不满足需求，可以点击【插入】->【其他宏】，查找更多的扩展插件。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115141759727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115141759727.png)
  
  - 2.3.1、 选择【格式化】->【代码块】->【语法高亮】->自由选择风格【选择sql】->自由选择主题【选择】->【emacs】,接着确认，即可插入sql
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115141859333.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ ![](/images/20191115141859333.png)
  
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019111514204243.png)
+![](/images/2019111514204243.png)
 
 -  2.3.2、 插入表格，插入开发状态颜色，点击【+】->选择【状态】
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142129799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142129799.png)
  -  2.3.3、 插入图片和附件 选择【插入文件和图片】
 例如，Confluence默认是不支持Markdown编辑模式的，如果想采用Markdown来编写文档，就可以通过上述方式到插件市场寻找Markdown的插件。
 不过根据实践发现，当前Confluence的Markdown插件支持的还不够好，使用体验上不尽如人意。比较推荐的做法，还是在单独的Markdown编辑器上采用markdown语法进行编辑，编辑完成后进行预览，然后将渲染后的文档内容复制粘贴到Confluence中。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142145441.png)
+![](/images/20191115142145441.png)
  -  2.3.4、移动文档 
 很多时候我们需要调整目录结构，这就涉及到需要将文档移动到别的目录层级下。
 操作方式如下：先进入到待移动的文档页面中，点击页面右上角的【…】->【移动】；
 然后选择移动到新的目录即可。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142255424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142255424.png)
 
 
 ####  2.4、创建目录 
 与创建文档方式一致，直接创建标题保存即可
 ####  2.5、模板方式创建文档 
  选择【以层级方式查看】->[模板]->【编辑】
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142338772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142418741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ ![](/images/20191115142338772.png)
+ ![](/images/20191115142418741.png)
 ###  三、发表评论 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019111514254892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/2019111514254892.png)
 ###  四、上传文档附件 
 样例
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142607965.png)
+![](/images/20191115142607965.png)
 ###  五、导出 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142620952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142620952.png)
 ###  六、文档权限管理 
 选择【...】->【限制】
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142705591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142705591.png)
 ###  七、创建空间 
 新建一个项目时，首先要做的就是创建一个空间，并进行初始化配置。
 创建空间的方式很简单，可以从顶部菜单进行创建：【空间】->【创建】；也可以从Dashboard页面的Spaces页面中进行创建。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142751374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142751374.png)
 
 
 1. 进入创建空间页面后，需要选择空间类型。这个需要根据空间的用途进行选择，对于团队协作的空间，推荐选择“Team Space”，如果实在不知道选择什么类型，选择“Blank Space”也是可以的。
 2. 然后是填写空间的基本信息。所有类型的空间都有两个必填字段，空间名和空间标识符。空间标识符可以理解为空间的ID，不同空间的空间标识符不能重复，但空间名是可以重复的。
 3. 另外，对于“Team Space”类型的空间，多了一个“Team members”字段，用于添加空间的成员。成员的名称是其公司邮箱的前缀。
 需要说明的是，空间创建完成后，Space key字段是不能修改的，其它字段以及团队成员都可以进行修改。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142824300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142908257.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142824300.png)
+![](/images/20191115142908257.png)
 ###  八、配置空间权限 
 创建空间后，根据项目需要，可以给空间设置权限。只有空间的管理员才能对空间权限进行配置。
 操作方式如下：首先进入空间的页面，在空间左下角中，【空间管理】->【权限】，进入权限管理页面。
 
 Confluence的权限控制比较完善，可以根据团队规范进行较为精细粒度的设置。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115142930420.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191115143010490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191115142930420.png)
+![](/images/20191115143010490.png)

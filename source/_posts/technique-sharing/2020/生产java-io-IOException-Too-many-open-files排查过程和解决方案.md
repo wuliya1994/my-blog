@@ -26,10 +26,10 @@ java.io.IOException: Too many open files
 
 
 ## 二、第一波排查
-#### 1、问题持续时间
+### 1、问题持续时间
 8:10 - 8：25
 
-#### 2、错误日志
+### 2、错误日志
 第一次出现错误是在
 
 ```handlebars
@@ -37,10 +37,10 @@ java.io.IOException: Too many open files
 java.io.IOException: Too many open files
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200323100419479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20200323100419479.png)
 
 
-#### 3、tcp连接数
+### 3、tcp连接数
 8:10:07的时候tcp连接数也是不多的，在200左右非常小，已经过了访问高峰
 
 ```handlebars
@@ -57,7 +57,7 @@ netstat -nat|grep -i "8050"|wc -l
 2020-03-20 08:10:13
 199
 ```
-#### 4、句柄打开数
+### 4、句柄打开数
  对于打开的句柄发现大量未成功释放的文件
 
 ```bash
@@ -69,13 +69,13 @@ ls -l /proc/13544/fd/ | grep tmpip.db |wc -l
 ls -l /proc/13544/fd/ | grep tmpip.db 
 ```
 
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200323094839824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+  ![](/images/20200323094839824.png)
 附上：
 查看进程打卡的各个资源数量排序前八位
 ```bash
 lsof -p 13544 |awk '{print $9}'| sort|uniq -c |sort -nr | head -n 8
 ```
-#### 5、 分析
+### 5、 分析
 目前除了重启应用解决外，具体原因还未确认
 
 1、当时的打卡人数每分钟不超过20人。
@@ -93,7 +93,7 @@ lsof -p 13544 |awk '{print $9}'| sort|uniq -c |sort -nr | head -n 8
 4、Linux的文件句柄数设置是正常的。ulimit –n 是65534
 5、根据上面步骤4，看得出有大量未释放的。
 
-#### 6、结论
+### 6、结论
 因为持续了很多天没有发布重启过应用，在累计几周的情况下。应用突然崩溃。
 
 1、打开的文件数没有做日志记录。在文件打开关闭有问题上面不排除有异常，因为lsof查看到每天有打开/tmpip.db文件但是一直未正确关闭，导致累计。
@@ -104,14 +104,8 @@ lsof -p 13544 |awk '{print $9}'| sort|uniq -c |sort -nr | head -n 8
 
  
 
- 
-
- 
-
- 
-
 ## 三、第二波排查
-#### 1、分析
+### 1、分析
 根据以上结论进行第二波：
 首先针对最多未释放的资源tmpip.db进行排查，因为代码里面日志记录代码有使用该文件。每次打卡都会插入日志，日志里面记录ip地址解析对应的中文地址会使用 tmpip.db，接着进行排查。
 
@@ -175,7 +169,7 @@ root@CN07ATT01NGX01V ~]# cat /proc/sys/fs/file-max
 select count(1) from t_log where  create_time>"2020-03-03 21:29:00" and create_time<="2020-03-20 08:10:07"  order by create_time desc
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200323094542768.png)
+![](/images/20200323094542768.png)
 
 如上图，启动后一共产生打卡日志64001条。
 
@@ -185,7 +179,7 @@ select count(1) from t_log where  create_time>"2020-03-03 21:29:00" and create_t
 
  
 
-#### 2、结论
+### 2、结论
 因此结论一时正确的，附上具体结论内容：
 
 [root@CN07ATT01NGX01V ~]# ls -l /proc/13544/fd
@@ -195,10 +189,10 @@ select count(1) from t_log where  create_time>"2020-03-03 21:29:00" and create_t
 java.io.IOException: Too many open files
 
 
-#### 3、解决
+### 3、解决
 1、日志方法记录ip的时候调用了AddressUtil的getCityInfo(String ip)
 根据传入去得到对应的中文地址，内部逻辑使用了tmpip.db。因此针对这部分代码进行核查。看是否有未释放，果然对于dbsearch使用之后是没有释放的，于是添加dbSearch.close方法进行关闭资源。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200323102106440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20200323102106440.png)
 2、在代码修改前，我们先在测试系统也还原到了这个问题，添加释放方法之后，资源释放问题得以解决！
 
 

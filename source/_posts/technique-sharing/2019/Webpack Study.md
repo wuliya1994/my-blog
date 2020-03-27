@@ -231,7 +231,7 @@ Webpack 通过入口文件开始，通过引用关系（require、import）挨�
 
    答案是 4 个。
 
-   ![webpackSplitChunk.jpg](./study-images/webpackSplitChunk.jpg)
+   ![webpackSplitChunk.jpg](/images/webpackSplitChunk.jpg)
 
    其中两个入口文件 home.js 和 detail.js 分别产生一个， runtimeChunk: "single" 会将Webpack在浏览器端运行时需要的代码单独抽离到一个文件，commons 下的配置会产生一个 Chunk，一共是 4 个。
 
@@ -351,7 +351,7 @@ console.log(test)
 console.log(myModule)
 ```
 
-![webpackCssBundleErr.jpg](./study-images/webpackCssBundleErr.jpg)
+![webpackCssBundleErr.jpg](/images/webpackCssBundleErr.jpg)
 
 安装 css-loader 拓展即可让 webpack 在打包时识别到 css 文件。安装 style-loader 可以让 Webpack 将引入的 CSS 加上 style 标签用 JS 自动生成在页面里。
 
@@ -616,7 +616,7 @@ import('./test2')
 
    打包效果如下：
 
-   ![asyncSplitReport.png](./study-images/asyncSplitReport.png)
+   ![asyncSplitReport.png](/images/asyncSplitReport.png)
 
    **可以看到**：
 
@@ -628,7 +628,7 @@ import('./test2')
 
    该模式下 webpack 会关注于静态文件的分离打包。
 
-   ![initialSplitReport.png](./study-images/initialSplitReport.png)
+   ![initialSplitReport.png](/images/initialSplitReport.png)
 
    **可以看到**：
 
@@ -639,7 +639,7 @@ import('./test2')
 
    该模式下 webpack 将会对两种引入一视同仁。
 
-   ![allSplitReport.png](./study-images/allSplitReport.png)
+   ![allSplitReport.png](/images/allSplitReport.png)
 
    **可以看到**：
 
@@ -1108,7 +1108,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
   效果如下：
 
-  ![progressPlugin.png](./study-images/progressPlugin.png)
+  ![progressPlugin.png](/images/progressPlugin.png)
 
 - 使用 resolve、extensions 来进行路径简化
 
@@ -1207,7 +1207,7 @@ module.exports = function (source) {
 
 配置完毕后，执行打包命令，就可以看到 loader 已经在打包过程中应用了。
 
-![loadersPackage1.jpg](./study-images/loadersPackage1.jpg)
+![loadersPackage1.jpg](/images/loadersPackage1.jpg)
 
 ### Loader API 功能
 

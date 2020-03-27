@@ -20,7 +20,7 @@ tags:
 
 ## 二、安装包
 步骤三四需要用的安装包较多，单独去找如果怕麻烦的话可以直接用百度云里面的这些，包含jenkins、maven、maven配置文件、jdk、git。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202105632194.png)
+![](/images/20191202105632194.png)
 链接：[https://pan.baidu.com/s/1wH5bx3QO4SZRi7fVqFolsA](https://pan.baidu.com/s/1wH5bx3QO4SZRi7fVqFolsA) 
 提取码：7z2t 
 ## 三、安装java环境
@@ -63,7 +63,7 @@ mv apache-tomcat-8.5.39 /usr/local/tomcat/
 ```
 可选操作-修改tomcat端口并启动测试能够访问
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202115009288.png)
+![](/images/20191202115009288.png)
 
 ### 3.3、安装maven
 使用百度云解压包或者下载maven安装包
@@ -114,7 +114,7 @@ git --version
 进入jenkins插件中心安装nodejs，接着去系统设置→系统设置（全局设置）>找到npm，配置如下
 进入jenkins插件中心安装nodejs，接着去系统设置→系统设置（全局设置）>找到npm，配置如下
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191204175909595.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191204175909595.png)
 
 
 ## 三、安装jenkins
@@ -139,12 +139,12 @@ mv jenkins.war /usr/local/tomcat/apache-tomcat-8.5.49/webapps
  
  ### 3.2、配置初始页
 3.2.1、这里有一个临时密码需要输入，在/home/tomcat/.jenkins/secrets/initialAdminPassword里面
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202143714163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202143714163.png)
 3.2.2、选择第二个，select plugin to install，这里其实不安装东西也没关系，进去主页面之后再去安装插件即可，确认
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202143733163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
- 3.2.3、创建用户名密码![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202143858955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202143733163.png)
+ 3.2.3、创建用户名密码![](/images/20191202143858955.png)
  3.2.4、进入主页
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202144007199.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ ![](/images/20191202144007199.png)
  
  ### 3.3、插件、凭据、工具配置
  
@@ -158,11 +158,11 @@ mv jenkins.war /usr/local/tomcat/apache-tomcat-8.5.49/webapps
 - Publish Over SSH
 
 2、凭据配置：选择凭据->系统->添加域，输入一个域名或者ip
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202145904197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ ![](/images/20191202145904197.png)
  点击添加一些凭据
- 	![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202150035710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ 	![](/images/20191202150035710.png)
  添加之后账户密码信息之后保存
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202150105566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ ![](/images/20191202150105566.png)
  3、ssh scp 配置
 系统管理->系统设置 ssh server 配置：
 如果用的是统一的key或者密码，则配置一次就可以了。
@@ -176,30 +176,30 @@ mv jenkins.war /usr/local/tomcat/apache-tomcat-8.5.49/webapps
 - UserName                  服务器用户名
 - Remote Directory     传输文件的目录
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202154305682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202154305682.png)
 4、配置本地maven、jdk、git
 maven，jdk，git、这些尽量使用本地配置
 如下图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202150756711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202150837714.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202150756711.png)
+![](/images/20191202150837714.png)
 ## 四、新建maven项目
 4.1、新建选择新建一个maven项目，如果没有安装Maven Integration plugin插件，则不会出现该item。
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202152253689.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202152253689.png)
 4.2、配置多条件分支参数
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202152418545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202152418545.png)
 4.3、选择git项目，选择凭据，指定分支（为空时代表any）	填写上面配置的分支参数myBranch（如果Repository URL报http错，则是http不被git支持，需要进去git目录 yum install curl-devel 安装后重新执行上面步骤3.4中的git两条编译配置命令）。
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202152646954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202152646954.png)
 4.4、构建前删除源文件和编译文件
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191212171944159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)选择pom.xml
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202153134627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191212171944159.png)选择pom.xml
+![](/images/20191202153134627.png)
 4.5、后置操作步骤选下拉框中的【Send files or execute commands over SSH】接着进行配置。
 - Source files     项目构建后的目录
 - Remove prefix    去前缀
 - Remote directoty 发布的目录
 - Exec command     发布完执行的命令
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202153239497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202153239497.png)
 
 4.6、确认构建后启动脚本是否有误
 
@@ -227,14 +227,14 @@ echo "启动中"
 
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202154922464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202154922464.png)
 4.7、尝试构建
 选择build with parameter
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202155049290.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202155049290.png)
 选择需要构建的分支之后构建进度如下，接着点击进度条进入构建日志详情查看具体信息
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202155103139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202155103139.png)
 如下图所示则构建成功，直接进去看应用启动日志或者直接访问应用的url地址
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191202162336106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191202162336106.png)
 ## 五、常见问题
 -  ssh发送文件到远程服务器报错，一般是因为设置路径不对，可能是远程服务器设置路径，或者发送位置不正确，一般有下面两种配置错误
 1、系统管理->系统设置->Publish over SSH->Remote Directory	>设置默认远程服务器根目录 /
@@ -253,7 +253,7 @@ echo "启动中"
 2、【源码管理】选择git版本和分支选择同前面maven的一致
 3、接下来就不一样了，
 4、【构建环境】选择 Provide Node & npm bin/ folder to PATH
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191204173751542.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191204173751542.png)
 5、构建shell
 
 ```bash
@@ -268,10 +268,10 @@ mv intelligence intelligence-web
 tar -zcvf intelligence-web.tar.gz intelligence-web
 ```
 6、构建后文件发送到应用服务器
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191204174049871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191204174049871.png)
 ## 七、克隆方式创建新项目
 选择构建自由风格的项目→copy from 已有项目->点击保存即可，接着按照自己需要修改版本git地址和脚本配置
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191204180530298.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191204180530298.png)
 ## 八、参考
 超全git+tomcat+jenkins实现自动化构建部署教程[https://blog.csdn.net/u011456337/article/details/89303647](https://blog.csdn.net/u011456337/article/details/89303647)
 Jenkins自动构建部署项目到远程服务器上
