@@ -1,6 +1,6 @@
 ---
 title: Kafka常见问题整理
-author: 
+author: 无名
 date: 2019-1-1 14:00:00
 ---
 
@@ -42,19 +42,19 @@ props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
 
 ​	如下图，副本A为leader副本，副本B为follower副本，它们的HW和LEO都为4。
 
-​	![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571561573874.png)
+​	![](/images/1571561573874.png)
 
 ​	此时，A中写入一条消息，它的LEO更新为5，B从A中同步了这条数据，自己的LEO也更新为5
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571561821171.png)
+![](/images/1571561821171.png)
 
 ​	之后B再向A发起请求以拉取数据，该FetchRequest请求中带上了B中的LEO信息，A在收到该请求后根据B的LEO值更新了自己的HW为5，A中虽然没有更多的消息，但还是在延时一段时间之后返回FetchRresponse，其中也包含了HW信息，最后B根据返回的HW信息更新自己的HW为5。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571562261415.png)
+![](/images/1571562261415.png)
 
 ​	可以看到整个过程中两者之间的HW同步有一个间隙，B在同步A中的消息之后需要再一轮的FetchRequest/FetchResponse才能更新自身的HW为5。如果在更新HW之前，B宕机了，那么B在重启之后会根据之前HW位置进行日志截断，这样便会将4这条消息截断，然后再向A发送请求拉取消息。此时若A再宕机，那么B就会被选举为新的leader。B恢复之后会成为follower，由于follower副本的HW不能比leader副本的HW高，所以还会做一次日志截断，以此将HW调整为4。这样一来4这条数据就丢失了（就算A不能恢复，这条数据也同样丢失了）。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571563944273.png)
+![](/images/1571563944273.png)
 
 ​	对于这种情况，一般要求起码设置如下4个参数：
 
@@ -96,7 +96,7 @@ props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
 
 ​	Kafka会把收到的消息都写入到磁盘中，它绝对不会丢失数据。因为磁盘是机械结构，每次读写都会寻址->写入，其中寻址是一个“机械动作”，它是最耗时的。所以磁盘最讨厌随机I/O，最喜欢顺序I/O。为了提高读写硬盘的速度，Kafka就是使用顺序I/O。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571570013654.png)
+![](/images/1571570013654.png)
 
 ​	如上图，每个partition在存储层面可以看作一个可追加的日志文件，收到消息后Kafka会把数据顺序写入文件末尾。
 
@@ -126,9 +126,7 @@ props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
 
 #### 6、Kafka在我们系统中的应用，生产者、消费者分别是什么？groupid是什么，topic是什么？
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571579017660.png)
+![](/images/1571579017660.png)
 
 ​	
-
-![1571581297846](C:\Users\yub\AppData\Roaming\Typora\typora-user-images\1571581297846.png)
 

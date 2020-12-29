@@ -23,3 +23,6 @@ $ hexo deploy
 
 3) 打开浏览器访问 username.github.io 即可访问我们刚部署到Github上的博客
 
+### 静态图片存放目录 
+ 所有静态图片存放在`source/images`下
+ 访问路径为 `/images/文件名`

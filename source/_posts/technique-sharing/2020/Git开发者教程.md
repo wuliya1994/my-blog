@@ -59,7 +59,7 @@ tags:
 
 ### 3.1、git flow简介
 大多数公司都基于[git flow]((https://www.jianshu.com/p/1889b0fe073b))的模式，并在此基础上做了调整。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191119163946896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191119163946896.png)
 ### 3.2、其他工作流模式
 工作流模式每个公司的不一样，都可能在gitflow的基础上做了很大改动
 下面列举三种基于gitflow的改造后模式。
@@ -70,22 +70,22 @@ tags:
 - 功能分支sit测试完成后，直接到release版本
 - release版本验收成功之后发生产。
 -  hotfixes直接基于master进行修改和上线。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019111917451583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/2019111917451583.png)
 
 #### 3.2.2、模式二
 每个开发者都有自己的分支，时不时地往dev分支上合并就可以了。跟模式一的区别在于，模式一的测试环境主要以feature为准，到测试基本完成后发布到develop的基本是小改动，小改动验收完成后直接develop到生产，而模式而强调每个人一个分支，测试主要以develop为准。
 
 所以，团队合作的分支看起来就像这样：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191120205011829.png)
+![](/images/20191120205011829.png)
 对于多个业务模块并行开发的具体场景如下
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121153605711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121153605711.png)
 #### 3.2.3、模式三
 模式三和模式一、模式二很类似，主要区别在于不需要每个开发者创建分支，共同在一个feature分支上面去做开发。模式三和模式一的区别在于，模式一强调以feature分支作为开发和测试的分支，而模式一稳定版本后直接发布到release分支，而模式三强调所有修改以develop为测试基准，测试完成直接发布到master。
 - 开发【feature分支】：从develop拉新分支，命名feature/迭代版本号_功能说明，不可以从feature分支再拉新分支
 - 测试【develop分支】：将feature分支合并到develop分支，再部署到测试环境
 - 发布【master分支】：将develop测试后的稳定版本合并到master分支，打版本标签，再进行发布，未经测试的不稳定代码不可以合并到master
 - 修复线上问题【hotfix分支】：从master分支拉新分支，命名hotfix/xxx，修复bug后合并到master分支，再将修复从master分支合并到develop分支
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191120214424390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191120214424390.png)
 
 #### 3.2.4、几种模式对比
 
@@ -136,8 +136,8 @@ git push origin issues1234
 3. 创建分支
 4. 基于分支开发
 5. 提交开发代码并同步到仓库（提交前先pull远程代码，如果有冲突则需要比对并解决冲突）
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191120223308550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019112022483230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191120223308550.png)
+![](/images/2019112022483230.png)
 
 
 ##  六、常用命令
@@ -152,10 +152,10 @@ git push origin issues1234
 [https://www.jianshu.com/p/31fa525d0853](https://www.jianshu.com/p/31fa525d0853)
 
 ### 6.2、git help
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121115435585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121115435585.png)
 ### 6.3、git常用命令速查表
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121115259366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121115259366.png)
 git：http和ssh的区别
 ## 七、常见场景
  ### 7.1、在gitlab上新建一个项目（repository）
@@ -178,8 +178,8 @@ git：http和ssh的区别
 
 - SSH方式需要将本地的SSH public key添加到GitLab账号的setting中，比较安全。
 - HTTP(S)方式第一次push到GitLab时需要提供用户名和密码登陆，操作比较简单。
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019112108591345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
- ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121090535256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+ ![](/images/2019112108591345.png)
+ ![](/images/20191121090535256.png)
  ### 7.2、远程gitlab项目clone到本地
  7.2.1、设置git config的user.name 和 user.email :
 
@@ -236,7 +236,7 @@ git branch -a
 
 
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121092151919.png)
+![](/images/20191121092151919.png)
 #### 7.3.2、分支常见操作
 
 ```bash
@@ -294,7 +294,7 @@ $ git branch -dr [remote/branch]
 3. commit到本地仓库
 4. push到远程仓库
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121094814727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121094814727.png)
 
 
 #### 7.4.2、命令行方式提交
@@ -332,7 +332,7 @@ git push origin <branch>
 
 
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121094107966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121094107966.png)
 #### 7.4.3、idea方式提交
 1. 确认当前所在分支
 2. pull远程最新代码到本地
@@ -343,9 +343,9 @@ git push origin <branch>
 7. 填写commit信息，尽量描述清楚本次修改点，以便bug修复跟踪和代码review或者回退
 8. 去除勾选的右边代码分析之类的操作，加快提交速度
 9. 下拉commit选项，选择commit and push，**即可完成提交**。（如果没有信心是否提交成功，或者只commit到本地了仓库了，那么可以去顶部菜单栏找到VCS-->Git->Push。点击push即可查看本地仓库未推送的提交记录，并点击推送），也可以去gitlab的项目页面去查看最新提交记录）
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121100923693.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019112110101585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121101906684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121100923693.png)
+![](/images/2019112110101585.png)
+![](/images/20191121101906684.png)
 ### 7.5、 增加/删除文件
 7.5.1、命令行方式
 ```bash
@@ -378,7 +378,7 @@ $ git mv [file-original] [file-renamed]
 - 直接常规操作复制到本项目即可，idea自动把文件添加到git的local changes中
 - 删除同添加一样删除后在local changes中会变成灰色的文件
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019112110344444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/2019112110344444.png)
 ### 7.6、 本地新项目上传到git
 
 7.6.1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库
@@ -570,7 +570,7 @@ git diff branch1 branch2
 
 #### 7.10.2、idea中文件对比
 如图可见，可以与历史版本或者其他分支的该文件进行对比，比命令行更加直观
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121141708503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121141708503.png)
 #### 7.10.3、命令行解决文件冲突
 7.10.3.1、发生冲突的文件
 ```
@@ -613,8 +613,8 @@ git push origin 分支名
 
 值得注意的是，最将所有的“x >>”符号都要处理完，不需要的点击“x”,需要的点击“>>”
 最后，不论是什么场景下产生的冲突解决方法是一样的。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121141254421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121141405593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121141254421.png)
+![](/images/20191121141405593.png)
 ### 7.11、合并分支
 #### 7.11.1、命令行合并
 对于复杂的系统，我们可能要开好几个分支来开发，具体git合并操作如下
@@ -655,9 +655,9 @@ git push
 7、完成了2.1.0合并到master的操作
 8、push代码到远程仓库，选择vsc->git->push
 9、完成
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121143848154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121143802313.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191121144331474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE0NTYzMzc=,size_16,color_FFFFFF,t_70)
+![](/images/20191121143848154.png)
+![](/images/20191121143802313.png)
+![](/images/20191121144331474.png)
 ## 八、代码review
 
 - 代码审查，通过merge request。

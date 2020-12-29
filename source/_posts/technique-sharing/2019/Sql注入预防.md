@@ -9,7 +9,7 @@ date: 2019-1-4 14:00:00
 
 老大反馈代码里面存在sql注入，这个漏洞会导致系统遭受攻击，定位到对应的代码，如下图所示
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/8D7C6C95-0D95-43d6-85AE-0128D12FF1BB.png)
+![](/images/8D7C6C95-0D95-43d6-85AE-0128D12FF1BB.png)
 
 like 进行了一个字符串拼接，正常的情况下，前端传一个 cxk 过来，那么执行的sql就是
 
@@ -67,13 +67,13 @@ def likeString(name:String) ={
 
 打断点可以看到
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/sql18.png)
+![](/images/sql18.png)
 
 
 将statement 中的值复制出来 到navicat 中，可以看到 
 
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/sql16.png)
+![](/images/sql16.png)
 
 
 那么jdbc 执行就会 直接执行，然后把cxk 删了。
@@ -118,10 +118,10 @@ def likeString(name:String) ={
 
 打断点可以看到
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/sql13.png)
+![](/images/sql13.png)
 
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/sql14.png)
+![](/images/sql14.png)
 
 
 
@@ -154,7 +154,7 @@ select  * from test where name like '%cxk\'; DELETE FROM test WHERE name like \'
 
 将statement 中的值复制出来 到navicat 中，可以看到 
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/sql15.png)
+![](/images/sql15.png)
 
 
 string 内部的; % 被格式化， 这样执行的话，内部的sql 就以字符串的形式存在，这样避免了Sql 注入。
@@ -167,7 +167,7 @@ string 内部的; % 被格式化， 这样执行的话，内部的sql 就以字�
 
 判断是否需要格式化
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/20191114195945.png)
+![](/images/20191114195945.png)
 
 
 贴上源码  
@@ -323,7 +323,7 @@ string 内部的; % 被格式化， 这样执行的话，内部的sql 就以字�
 从这里可以看出，会讲' 加一个'\'  那么原传入的Sring 就会被格式化成上文所说。
 打断点我们可以看到
 
-![](https://raw.githubusercontent.com/mengck/pic/master/img/sql21.png)
+![](/images/sql21.png)
 
 
 这一块是jdbc PreparedStatement  对SQL注入的防范。

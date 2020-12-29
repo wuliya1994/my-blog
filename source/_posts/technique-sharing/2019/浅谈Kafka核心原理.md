@@ -25,21 +25,21 @@ date: 2019-8-24 23:29:08
 
 ​	现有A服务在自己代码中调用B服务的接口和C服务的接口发送数据
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570349327919.png)
+![](/images/1570349327919.png)
 
 ​		此时新增D服务也需要A服务发送数据，则需要A服务在自己代码里修改，发送数据给D服务，紧接着C服务又说不需要A服务给自己发送数据了
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570353961427.png)
+![](/images/pic/1570353961427.png)
 
 ​		负责A服务的人还得考虑，如果调用的B服务挂了怎么办？如果D服务访问超时怎么办？由于A服务产生了比较关键的数据，许多服务需要A服务发送该数据过来，这也导致了A服务与其他服务的严重耦合。
 
 **使用MQ解耦场景：**
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570354023234.png)
+![](/images/1570354023234.png)
 
 我们自己使用的场景
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1571154041749.png)
+![](/images/1571154041749.png)
 
 ##### ·  异步：
 
@@ -47,13 +47,13 @@ date: 2019-8-24 23:29:08
 
 ​	现有一用户请求，调用服务A接口
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570355189888.png)
+![](/images/1570355189888.png)
 
 ​		我们来计算一下，服务A先是在自己本地执行SQL，然后调用了服务B、服务C和服务D的接口，4个步骤下来，需要耗时的总时长为970ms。用户通过浏览器发起请求，等待1秒才得到响应，几乎不可接受。一般对于用户的直接的操作，要求是每个请求都必须在200ms内完成，对用户几乎是无感知的。
 
 **使用MQ进行异步化：**
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570358228532.png)
+![](/images/1570358228532.png)
 
 ​	使用MQ进行异步化之后，此时用户发起请求调用服务A的总耗时变成了20+5=25ms。 
 
@@ -61,11 +61,11 @@ date: 2019-8-24 23:29:08
 
 **未使用MQ削峰大量用户请求场景：**
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570376006119.png)
+![](/images/1570376006119.png)
 
 **使用MQ进行削峰场景：**
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570377103963.png)
+![](/images/1570377103963.png)
 
 ​		MQ中每秒有2000个请求进来，就只有1000个请求出去，结果就是导致在高峰期（假设1个小时）可能有几十万甚至上百万的请求积压在MQ中，但是高峰期过后，每秒钟只有20个请求，系统还是会按照每秒1000个请求的速度处理，差不多1个多小时就可以把积压的上百万条消息给处理掉，就没有积压了。
 
@@ -83,7 +83,7 @@ date: 2019-8-24 23:29:08
 
 #### 典型的Kafka体系架构
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570434633144.png)
+![](/images/1570434633144.png)
 
 先简单介绍下Kafka中的术语：
 
@@ -101,7 +101,7 @@ date: 2019-8-24 23:29:08
 
 如图，某个主题中有3个分区，消息被顺序追加到每个分区日志文件的尾部。Kafka中的分区可以分布在不同的broker上，也就是说，一个topic的数据可以分布在多个broker上
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570435400123.png)
+![](/images/1570435400123.png)
 
 ​	Kafka之所以将topic分成多个分区，分布在不同的broker上，就是提供负载均衡的能力，也就是实现系统的高伸缩性。
 
@@ -109,7 +109,7 @@ date: 2019-8-24 23:29:08
 
 ​		Kafka为分区引入了多副本（Replica）机制，通过增加副本数量可以提升容灾能力。同一分区的不同副本中保存的是相同的消息（在同一时刻，副本之间并非完全一样），副本之间是“一主多从”的关系，其中leader副本负责处理读写请求，follower副本只负责与leader副本的消息同步。副本处于不同的broker中，当leader副本出现故障时，从follower副本中从新选举新的leader副本对外提供服务。Kafka通过多副本机制实现 了故障的自动转移，当Kafka集群中某个新的broker失效时，仍然能保证服务可用。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570458914836.png)
+![](/images/1570458914836.png)
 
 ​		如图所示，Kafka集群中有3个broker，某个topic中有3个分区，且副本因子（即副本个数）也为3，如此每个分区便有1个leader副本和2个follower副本。生产者和消费者只与leader副本进行交互，而follower副本只负责消息的同步，很多时候follower副本中的消息相对于leader而言会有一定的滞后。
 
@@ -119,21 +119,21 @@ date: 2019-8-24 23:29:08
 
 ​		ISR与HW和LEO也有紧密的关系。HW是High Watermark的缩写，俗称高水位，它标识了一个特定的消息偏移量（offset），消息只能拉取到这个offset之前的消息。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570463237141.png)
+![](/images/1570463237141.png)
 
 ​		如上图所示，表示一个分区中各种偏移量的说明。它代表一个日志文件，这个日志文件中有9条消息，第一条消息的offset为0，最后一条消息的offset为8,offset为9代表下一条待写入的消息的位置。日志文件的HW为6，表示消费者只能拉取到offset在0至5之间的消息，而offset为6的消息对消费者而言是不可见的。**LEO**是Log End Offset的缩写，标识当前日志文件下一条待写入的消息的offset。分区ISR集合中的每个副本都会维护自身的的LEO，而集合中最小的LEO即为分区的HW，对消费者而言，只能消费HW之前的消息。下面举个例子来更好的说明ISR集合与HW和LEO之间的关系：
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570466677914.png)
+![](/images/1570466677914.png)
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570466932355.png)
+![](/images/1570466932355.png)
 
 ​	在同步过程中，不同的follower副本的同步效率也不尽相同。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570467298346.png)
+![](/images/1570467298346.png)
 
 ​		在某一时刻，follower1完全跟上了leader副本而follower2只同步到了消息3，如此leader副本的LEO为5，follower1的LEO为5，follower2的LEO为4，那么当前分区的HW取最小值4，此时消费者可以消费到offset为0至3之间的消息。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570467513662.png)
+![](/images/1570467513662.png)
 
 ​		所有的消息都成功写入了消息3和消息4，整个分区的HW和LEO都变为5，因此消费者可以消费到offset为4的消息了。由此可见，Kafka的复制机制既不是完全的同步复制，也不是单纯的异步复制。事实上，同步复制要求所有能工作的follower副本都复制完，这条消息才会被确认为已成功提交，这种复制方式极大地影响了性能。而在异步复制方式下，follower副本异步地从leader副本中复制数据，数据只要被leader副本写入就被认为已经成功提交了。在这种情况下，如果follower副本都还没有复制完而落后于leader副本，突然leader副本宕机，则会造成数据丢失。Kafka使用的这种ISR的方式则有效地权衡了数据可靠性和性能之间的关系。
 
@@ -173,7 +173,7 @@ public class ProducerRecord<K,V> {
 
 ​		其中topic和partition字段分别指代消息要发往的主题和分区号。value是指消息体，即你要发送的内容。key是用来指定消息的键，它不仅是消息的附加信息，还可以用来计算分区号进而可以让消息发往特定的分区。消息以主题为单位进行归类，而这个key可以让消息再进行二次归类，同一个key的消息会被划分到同一个分区中。说到key，这里如果要保证消息的顺序性，可以把需要保证消息消费顺序的指定同一个key。消息在通过send()方法发往broker的过程中，有可能需要经过拦截器、序列化器和分区器。拦截器一般不是必需的，但序列化器是必需的。生产者需要用序列化器把对象转换成字节数组才能通过网络发送给Kafka。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570549324737.png)
+![](/images/1570549324737.png)
 
 ​		如果在构造消息时在ProducerRecord中指定了partition字段，那么就不需要分区器的作用，如果没有指定，那么就需要依赖分区器根据key这个字段来计算partition的值。在默认分区器的方法中，如果key部位null，那么默认的分区器会对key进行哈希，最终根据等到的哈希值来计算分区号，有相同key的消息会被写入同一个分区。如果key为null，那么消息将会以轮询的方式发往主题内的各个可用分区。
 
@@ -183,7 +183,7 @@ public class ProducerRecord<K,V> {
 
 **消费组**（Consumer Group）：每个消费者都有一个对应的消费组，消息发布到主题后，只会被投递给订阅它的每个消费组中的一个消费者。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570634727822.png)
+![](/images/1570634727822.png)
 
 ​		如上图所示，某个主题共有3个分区，有两个消费组A和B都订阅了这个主题。按照Kafka默认的规则，消费组A中每个消费者分配到1个分区，消费组B中C3分配到两个分区，C4分配到1个分区。两个消费组之间互不影响，每个消费组只能消费所分配到的分区中的消息，换言之，每一个分区只能被一个消费组中的一个消费者所消费。消费组是一个逻辑上的概念，它将属于同一组的消费者归为一类，每一个消费者只隶属于一个消费组，课通过消费者客户端参数group.id来配置消费组。
 
@@ -229,7 +229,7 @@ public class ConsumerRecord<K,V> {
 
 ​		Kafka中每条消息都有唯一的offset，表示该消息处在的partition中的位置，叫作“偏移量”。消费者中也有一个offset概念，表示消费者消费到分区中某个消息所在的位置，我们把它与消息的区分开，可叫作“位移”。在旧消费者客户端（用Scala编写的客户端版本）中，消费位移是保存在ZooKeeper中的，而在新消费者客户端（用Java编写的客户端）中，消费位移存储在Kafka内部的主题_consumer_offsets中。这里将消费位移存储起来（持久化）的动作称为“提交”。
 
-![](https://raw.githubusercontent.com/ly8051033/BlogPicture/master/pic/1570640588699.png)
+![](/images/1570640588699.png)
 
 ​		当前消费者消费的位移为X，但它需要提交的消费位移不是X，而是X+1，它表示下一条需要拉取的消息的位置。在Kafka中默认的消费位移提交方式是自动提交，提交时间默认为5秒，可通过auto.commit.interval.ms配置。
 
