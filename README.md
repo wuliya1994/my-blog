@@ -26,3 +26,5 @@ $ hexo deploy
 ### 静态图片存放目录 
  所有静态图片存放在`source/images`下
  访问路径为 `/images/文件名`
+ 
+ ### 构建docker 镜像，执行updateDocker.sh脚本可以构建镜像
